@@ -145,6 +145,13 @@ client exercise real network behaviour: status codes, latency, JSON parsing and 
   as separate layers. It uses the photo block as its trigger because it moves itself. The
   stamp spins in once; its text ring turns slowly in CSS. The section is `overflow-x: clip`
   because a turning square's bounding box is wider than the square.
+- **`miniMap`** assembles the illustrated map above the address: the blocks pop up, the route
+  draws itself to the café, and the pin drops onto the door. The map is an invented sketch of
+  the block, and the written address under it is the source of truth. Its idle loops are CSS:
+  the pin bobs and pulses, clouds drift, the compass wobbles and the pond ripples. The scooter
+  and the traffic use SMIL `animateMotion`, because SMIL follows a path in viewBox units at
+  any size. Tapping the map opens Google Maps. The map link is `aria-hidden` and out of the tab
+  order, because "Get directions" does the same job.
 - **Lenis and ScrollTrigger share one loop.** Lenis is driven by `gsap.ticker`, calls
   `ScrollTrigger.update` on scroll, and has `lagSmoothing(0)`. Nothing else runs its own
   scroll loop.
@@ -166,7 +173,8 @@ client exercise real network behaviour: status codes, latency, JSON parsing and 
   columns. Short landscape screens (under 480 px tall, checked once so an on-screen keyboard
   can't trigger a rebuild) and reduced motion keep a native swipe row with scroll-snap.
 - **Reduced motion:** movement becomes short fades. Loops (marquee, pulse, coupon float and
-  sheen, CTA shine, stamp ring) stop. Nothing is
+  sheen, CTA shine, stamp ring, map loops) stop, and the map's vehicles are hidden because CSS
+  can't pause SMIL. Nothing is
   pinned, scrubbed or smoothed. The spinner still spins, slower, because it communicates state.
 
 ## Responsive and mobile

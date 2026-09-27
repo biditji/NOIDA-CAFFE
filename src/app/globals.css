@@ -1657,6 +1657,19 @@ html.lenis body {
   rotate: -45deg;
   transition: translate 0.4s var(--ease-out-expo);
 }
+/* On a small phone the full-size pill would cover the park. */
+@media (max-width: 479px) {
+  .visit-map-hint {
+    right: 0.5rem;
+    bottom: 0.5rem;
+    padding: 0.25rem 0.45rem 0.25rem 0.6rem;
+    font-size: 0.6875rem;
+  }
+  .visit-map-hint svg {
+    width: 12px;
+    height: 12px;
+  }
+}
 .mini-map {
   display: block;
   width: 100%;
