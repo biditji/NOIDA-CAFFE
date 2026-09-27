@@ -1,5 +1,6 @@
-import { Clock, MapPin, MorrowMark } from "@/components/Icons";
+import { ArrowRight, Clock, MapPin, MorrowMark } from "@/components/Icons";
 import { ImageSlot } from "@/components/ImageSlot";
+import { MiniMap } from "@/components/MiniMap";
 import { MEDIA } from "@/content/media";
 import { CAMPAIGN } from "@/lib/campaign";
 
@@ -46,9 +47,26 @@ export function VisitUs() {
                 <MapPin width={18} height={18} /> Address
               </dt>
               <dd>
-                {CAMPAIGN.cafe}
-                <br />
-                {CAMPAIGN.address}
+                {/* Tapping the map opens Google Maps. It's hidden from assistive tech and the
+                    tab order because the "Get directions" link below does the same job. */}
+                <a
+                  className="visit-map"
+                  href={CAMPAIGN.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                >
+                  <MiniMap />
+                  <span className="visit-map-hint">
+                    Open in Maps <ArrowRight />
+                  </span>
+                </a>
+                <p className="visit-address">
+                  <strong>{CAMPAIGN.cafe}</strong>
+                  <br />
+                  {CAMPAIGN.address}
+                </p>
               </dd>
             </div>
             <div data-reveal>

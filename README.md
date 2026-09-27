@@ -7,6 +7,10 @@ a code on screen to show at the counter.
 **Live:** _TODO: add the deployed URL_ · **Try the unhappy paths:** add `?demo=error`
 (server failure) or `?demo=slow` (2.5 s response) to the live URL.
 
+**How it was built:** I set the direction (stack, requirements and priorities), chose the
+content and photography, and did the testing and review. The implementation code was written
+with Claude Code under that direction. [AI.md](AI.md) has the details.
+
 ---
 
 ## What's in it
@@ -54,9 +58,10 @@ Optional: set `CLAIM_CODE_SECRET` (any string) in production. Without it, a dev 
 **Deploy:** push to GitHub and import into Vercel. No config is needed; `/api/claim` becomes a
 serverless function.
 
-**Adding photos:** drop files in `public/images/` and set `src` in `src/content/media.ts`.
-`next/image` then serves AVIF/WebP at the right widths. Until then the slots render CSS
-illustrations at the same aspect ratio, so nothing shifts when real photos arrive.
+**Photos:** the two photos in `public/images/` are the brief's reference photos, listed in
+`src/content/media.ts` and served by `next/image` as AVIF/WebP at the right widths. To swap one,
+replace the file or change its `src`. A slot with `src: null` renders a CSS illustration at the
+same aspect ratio, so the layout never shifts either way.
 
 ## Architecture
 

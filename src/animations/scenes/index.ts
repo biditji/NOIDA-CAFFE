@@ -3,6 +3,7 @@ import { heroScroll } from "@/animations/scenes/heroScroll";
 import { imageReveal } from "@/animations/scenes/imageReveal";
 import { marquee } from "@/animations/scenes/marquee";
 import { menuStack } from "@/animations/scenes/menuStack";
+import { miniMap } from "@/animations/scenes/miniMap";
 import { magnetic, tilt } from "@/animations/scenes/pointer";
 import { reveal } from "@/animations/scenes/reveal";
 import { scrollProgress } from "@/animations/scenes/scrollProgress";
@@ -24,6 +25,7 @@ export const SCENES: Scene[] = [
   steps,
   claimCard,
   imageReveal,
+  miniMap,
   marquee,
   scrollProgress,
   magnetic,
